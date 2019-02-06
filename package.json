@@ -1,0 +1,24 @@
+{
+  "name": "eventbrite-contacts",
+  "version": "1.0.0",
+  "description": "create hubspot contacts from eventbrite api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ziziou91/eventbrite-contacts.git"
+  },
+  "author": "Josh Gray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ziziou91/eventbrite-contacts/issues"
+  },
+  "homepage": "https://github.com/Ziziou91/eventbrite-contacts#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}
