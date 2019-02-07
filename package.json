@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Ziziou91/eventbrite-contacts#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.4",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
