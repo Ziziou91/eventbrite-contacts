@@ -3,7 +3,12 @@ const {contactParser, postContactsToHubspot} = require('./lib/hubspotData')
 
 const sendAttendeesToHubspot = async () => {
     try {
-        await getAllEvents().then(getITPIds).then(getAllSignups).then(filterOnlyAttendees).then(contactParser).then(postContactsToHubspot)
+        await getAllEvents()
+                .then( getITPAndTasterIds)
+                .then(getAllSignups)
+                .then(filterOnlyAttendees)
+                .then(contactParser)
+                .then(postContactsToHubspot)
         }
     catch (error) {
         console.log(error)
