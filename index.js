@@ -7,9 +7,14 @@ const sendAttendeesToHubspot = async (auth) => {
         const eventIDs = await getEventbriteIDs(auth.eventbrite)
         const attendees = await getAttendees(eventIDs)
         postAttendeesToHubspot(attendees, auth.hubspot)
+        return attendees
         }
     catch (error) {
-        console.log(error)
+        return (error);
     }
 }
 sendAttendeesToHubspot(KEYS)
+
+module.exports = {
+    sendAttendeesToHubspot
+}
