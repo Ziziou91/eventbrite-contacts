@@ -1,23 +1,16 @@
-const {getAllEvents, getAllSignups, getITPAndTasterIds, filterOnlyAttendees} = require('./lib/eventbriteData.js')
-const {contactParser, postContactsToHubspot} = require('./lib/hubspotData')
+const {getEventbriteIDs, getAttendees} = require('./lib/eventbriteData.js')
+const {postAttendeesToHubspot} = require('./lib/hubspotData')
+const KEYS = require('./.ignore/keys');
 
-const sendAttendeesToHubspot = async () => {
+
+const sendAttendeesToHubspot = async (auth) => {
     try {
-        await getAllEvents()
-                .then(getITPAndTasterIds)
-                .then(getAllSignups)
-                .then(filterOnlyAttendees)
-                .then(contactParser)
-                .then(postContactsToHubspot)
+        const eventIDs = await getEventbriteIDs(auth)
+        const attendees = await getAttendees(eventIDs)
+        postAttendeesToHubspot(attendees)
         }
     catch (error) {
         console.log(error)
     }
 }
-sendAttendeesToHubspot()
-
-
-
-
-
-
+sendAttendeesToHubspot(KEYS.eventbrite)
