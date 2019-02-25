@@ -5,7 +5,7 @@ const KEYS = require('./.ignore/keys');
 const sendAttendeesToHubspot = async (auth) => {
     try {
         const eventIDs = await getEventbriteIDs(auth.eventbrite)
-        const attendees = await getAttendees(eventIDs)
+        const attendees = await getAttendees(eventIDs, auth.eventbrite)
         postAttendeesToHubspot(attendees, auth.hubspot)
         return attendees
         }
