@@ -25,7 +25,6 @@ const sendAttendeesToHubspot = async (
 const sendYCBMBookingsHubspot = async auth => {
   try {
     const bookings = await getYCBMBookings(auth.ycbm);
-    console.log(bookings);
     postAttendeesToHubspot(bookings, ycbmContactParser, auth.hubspot);
   } catch (error) {
     console.log(error);
