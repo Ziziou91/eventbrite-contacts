@@ -18,6 +18,7 @@ const sendAttendeesToHubspot = async (
     postAttendeesToHubspot(attendees, eventbriteContactParser, auth.hubspot);
     return attendees;
   } catch (error) {
+    console.log(error);
     return error;
   }
 };
@@ -41,8 +42,8 @@ const sendYCBMBookingsHubspot = async auth => {
 //   }
 // };
 
-//sendAttendeesToHubspot(KEYS);
-sendYCBMBookingsHubspot(KEYS);
+sendAttendeesToHubspot(KEYS);
+//sendYCBMBookingsHubspot(KEYS);
 
 module.exports = {
   sendAttendeesToHubspot
