@@ -15,6 +15,7 @@ const sendAttendeesToHubspot = async (
   try {
     const eventIDs = await getEventbriteIDs(auth.eventbrite, eventNames);
     const attendees = await getAttendees(eventIDs, auth.eventbrite);
+    //console.log(attendees)
     postAttendeesToHubspot(attendees, eventbriteContactParser, auth.hubspot);
     return attendees;
   } catch (error) {
@@ -22,25 +23,6 @@ const sendAttendeesToHubspot = async (
     return error;
   }
 };
-
-const sendYCBMBookingsHubspot = async auth => {
-  try {
-    const bookings = await getYCBMBookings(auth.ycbm);
-    postAttendeesToHubspot(bookings, ycbmContactParser, auth.hubspot);
-  } catch (error) {
-    console.log(error);
-    return error;
-  }
-};
-
-// const sendTasksToHubspot = async auth => {
-//   try {
-
-//   } catch (error) {
-//     console.log(error);
-//     return error;
-//   }
-// };
 
 sendAttendeesToHubspot(KEYS);
 //sendYCBMBookingsHubspot(KEYS);
